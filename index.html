@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                              <!--STYLE LINKS-->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <!--jQuery link-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  <!-- mapboxlinks -->
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
+  <title>Document</title>
+</head>
+<body>
+  <header style="background-color: transparent;">
+    <div class="main-header">
+    <div class="logo">Logo</div>
+    <nav class="navbar">
+      <ul>
+        <li></li>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#feature" class="nav-link">Feature </a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#" class="nav-link">Gallery</a></li>
+        <li><a href="#" class="nav-link">Review</a></li>
+        <li><a href="#" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="menu-toggle"  >≡</div>
+    </nav>
+  </div>
+  </header>
+  <nav class="vertical-nav" id="verticalNav">
+    <ul>
+      <!-- Menu items will be dynamically added here -->
+    </ul>
+  </nav>
+<script>
+    $(document).ready(function(){
+      // Function to toggle navbar items to vertical alignment
+      function toggleVerticalNav() {
+        var $mainNavItems = $('.navbar ul li');
+        var $verticalNav = $('.vertical-nav ul');
+
+        // Empty the vertical nav
+        $verticalNav.empty();
+
+        // Clone and append main nav items to vertical nav
+        $mainNavItems.each(function() {
+          var $item = $(this).clone();
+          $verticalNav.append($item);
+        });
+      }
+
+      // Toggle vertical nav when the screen size changes
+      function handleMediaChange(mediaQuery) {
+        if (mediaQuery.matches) {
+          toggleVerticalNav();
+        }
+      }
+
+      // Initial check for media query
+      handleMediaChange(window.matchMedia('(max-width: 768px)'));
+
+      // Listen for media query changes
+      window.matchMedia('(max-width: 768px)').addListener(function(mediaQuery) {
+        handleMediaChange(mediaQuery);
+      });
+
+      // Toggle vertical nav on menu toggle button click
+      $('.menu-toggle').click(function() {
+        $('.vertical-nav').toggle();
+      });
+    });
+  </script>
+  <main>
+    <div class="video-container">
+      <video autoplay muted loop id="video-bg">
+        <source src="videos/home-background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <section class="home-section"id='home'>    
+        
+
+      <div class="vertical-align">
+          <div class="home-content">
+              <!-- Content for the first div -->
+              <h1>Explore New Places,</h1><h1>Adventure Awaits.</h1>
+              <p>This is where you can introduce your website content. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                 Suscipit eligendi eaque a recusandae maxime, saepe reiciendis beatae molestias at? Consequuntur! </p>
+          </div>
+          <div class="home-content">
+              <!-- Content for the second div -->
+              <div class="form-container">
+                <h2>Search your Destination</h2><br>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Location<label>
+                        <input type="text" id="name" name="name" required placeholder="Places you want to visit">
+                    </div>
+                    <div class="form-group">
+                        <label for="number">Guest Member</label>
+                        <input type="number" id="number" name="number_of_persons" required placeholder="Enter how many peoples">
+                    </div>
+                    <div class="form-group">
+                        <label for="arrival-date">Arrival</label>
+                        <input type="date" id="start-date" name="start-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">Leaving</label>
+                        <input type="date" id="end-date" name="end-date" required>
+                    </div>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+          </div>
+      </div>
+      
+    </section>
+
+<section id="feature">
+
+  <div class="feature-content">
+    <h1 class="section-heading"><span > F</span>eatured <span>L</span>ocations</h1><br><br><br>
+    <div class="feature-content-div">
+
+      <!-- three packages provided by travel -->
+      <!-- card1 -->
+      <div class="feature-card">
+        <div class="feature-image"><img src="images/hwaii.PNG" alt="" srcset=""></div>
+        <div class="feature-content">
+          <h2>HWAII</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <div class="stars">
+            <span class="filled-star">&#9733;</span>
+            <span class="filled-star">&#9733;</span>
+            <span class="filled-star">&#9733;</span>
+            <span class="hollow-star">&#9734;</span>
+            <span class="hollow-star">&#9734;</span>
+          </div>
+          <a href="#" class="feature-button">Check Out!</a>
+        </div>
+      </div>
+<!-- card2 -->
+<div class="feature-card">
+  <div class="feature-image"><img src="images/egypt.PNG" alt="" srcset=""></div>
+  <div class="feature-content">
+    <h2>EGYPT</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="stars">
+      <span class="filled-star">&#9733;</span>
+      <span class="filled-star">&#9733;</span>
+      <span class="filled-star">&#9733;</span>
+      <span class="hollow-star">&#9734;</span>
+      <span class="hollow-star">&#9734;</span>
+    </div>
+    <a href="#" class="feature-button">Check Out!</a>
+  </div>
+</div>
+<!-- card3 -->
+<div class="feature-card">
+  <div class="feature-image"><img src="images/India.PNG" alt="" srcset=""></div>
+  <div class="feature-content">
+    <h2>INDIA</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="stars">
+      <span class="filled-star">&#9733;</span>
+      <span class="filled-star">&#9733;</span>
+      <span class="filled-star">&#9733;</span>
+      <span class="hollow-star">&#9733;</span>
+      <span class="hollow-star">&#9734;</span>
+    </div>
+    <a href="#" class="feature-button">Check Out!</a>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+
+</section>
+
+
+<section id="about">
+  <h1 class="section-heading"><span > A</span>bout <span>U</span>s</h1><br><br><br>
+  <div class="about-main">
+    <div class="about-image"><a href="https://storyset.com/travel"><img src="images/about-us.svg" alt="" srcset=""></a></div>
+    <div class="about-content"><h1>Why Choose Us?</h1><p>Lorem ipsum 
+      dolor sit amet consectetur adipisicing elit. Ea aliquid excepturi a libero, Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Minus commodi magnam exercitationem et velit hic quam eligendi nostrum eius 
+      repudiandae!debitis repudiandae totam omnis harum ad dolores.</p>
+<button class="white-button">Read More</button>
+<button class="green-button">Get in Touch</button>
+    </div>
+
+  </div>
+</section>
+<!-- gallery setion starts here--> 
+<section id="gallery" class="gallery">
+  <h1 class="section-heading"><span > G</span>allery </h1><br><br><br>
+
+  <div class="box-container">
+    <!-- image1 -->
+<div class="box">
+  <img src="images/img7.PNG" alt="" srcset="">
+  <div class="icons">
+    <a href="#"><i class='bi bi-heart-fill'></i></a>
+    <a href="#"><i class="bi bi-search"></i></a>
+    <a href="#" ><i class="bi bi-share"></i></a>
+  </div>
+</div>
+ 
+<!-- image 2 -->
+
+<div class="box">
+  <img src="images/img1.PNG" alt="" srcset="">
+  <div class="icons">
+    <a href="#"><i class='bi bi-heart-fill'></i></a>
+    <a href="#"><i class="bi bi-search"></i></a>
+    <a href="#" ><i class="bi bi-share"></i></a>
+  </div>
+</div>
+
+<!-- image3 -->
+<div class="box">
+  <img src="images/img2.PNG" alt="" srcset="">
+  <div class="icons">
+    <a href="#"><i class='bi bi-heart-fill'></i></a>
+    <a href="#"><i class="bi bi-search"></i></a>
+    <a href="#" ><i class="bi bi-share"></i></a>
+  </div>
+</div>
+
+<!-- image4 -->
+<div class="box">
+  <img src="images/img3.PNG" alt="" srcset="">
+  <div class="icons">
+    <a href="#"><i class='bi bi-heart-fill'></i></a>
+    <a href="#"><i class="bi bi-search"></i></a>
+    <a href="#" ><i class="bi bi-share"></i></a>
+  </div>
+</div>
+
+<!-- image5 -->
+<div class="box">
+  <img src="images/img4.PNG" alt="" srcset="">
+  <div class="icons">
+    <a href="#"><i class='bi bi-heart-fill'></i></a>
+    <a href="#"><i class="bi bi-search"></i></a>
+    <a href="#" ><i class="bi bi-share"></i></a>
+  </div>
+</div>
+
+<!-- image 6 -->
+<div class="box">
+  <img src="images/img5.PNG" alt="" srcset="">
+  <div class="icons">
+    <a href="#"><i class='bi bi-heart-fill'></i></a>
+    <a href="#"><i class="bi bi-search"></i></a>
+    <a href="#" ><i class="bi bi-share"></i></a>
+  </div>
+</div>
+
+
+  </div>
+
+
+</section>
+
+<!-- gallery section ends here-->
+
+
+<!-- review section starts here -->
+
+<section class="review" id='review'>
+
+  <h1 class="section-heading"><span style="color: gold;"> G</span>allery </h1><br><br><br>
+<div class="box-container">
+ <!-- reviewer 1 -->
+  <div class="box">
+   <div class="image"><img src="images/review1.jpg" alt="" srcset=""></div> 
+    <h2>Someone's name</h2>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores deserunt nemo blanditiis ipsum ipsam explicabo. 
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+      Obcaecati ab repudiandae voluptatem commodi, saepe debitis praesentium officia alias earum quae!</p>
+    <div class="stars">
+      <span class="filled-star">&#9733;</span>
+      <span class="filled-star">&#9733;</span>
+      <span class="filled-star">&#9733;</span>
+      <span class="hollow-star">&#9734;</span>
+      <span class="hollow-star">&#9734;</span>
+    </div>
+  </div>
+<!-- reviewer2  -->
+<div class="box">
+  <div class="image"><img src="images/review2.png" alt="" srcset=""></div>
+  <h2>Someone's name</h2>
+  <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores deserunt nemo blanditiis ipsum ipsam explicabo. 
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+    Obcaecati ab repudiandae voluptatem commodi, saepe debitis praesentium officia alias earum quae!</p>
+  <div class="stars">
+    <span class="filled-star">&#9733;</span>
+    <span class="filled-star">&#9733;</span>
+    <span class="filled-star">&#9733;</span>
+    <span class="hollow-star">&#9734;</span>
+    <span class="hollow-star">&#9734;</span>
+  </div>
+</div>
+
+<!-- reviewer 3 -->
+<div class="box">
+  <div class="image">
+  <img src="images/review3.jpg" alt="" srcset=""></div>
+  <div class="content"><h2>Someone's name</h2>
+  <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores deserunt nemo blanditiis ipsum ipsam explicabo. 
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+    Obcaecati ab repudiandae voluptatem commodi, saepe debitis praesentium officia alias earum quae!</p>
+  <div class="stars">
+    <span class="filled-star">&#9733;</span>
+    <span class="filled-star">&#9733;</span>
+    <span class="filled-star">&#9733;</span>
+    <span class="hollow-star">&#9734;</span>
+    <span class="hollow-star">&#9734;</span>
+  </div>
+</div>
+</div>
+
+
+</div>
+</section>
+
+
+<!-- review section ends here -->
+
+<!-- contact section starts here -->
+
+
+<section id="contact" class="contact">
+
+
+  <h1 class="section-heading"><span > C</span>ontact <span></h1><br><br><br>
+  
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3301.9757520905987!2d73.21257961097582!3d34.14696247300943!2m3!
+    1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1713164066298!5m2!1sen!2s" width="100%" 
+    height="450" style="border:0; outline: none;" allowfullscreen="" 
+    loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-hidden="false" tabindex="0"></iframe>
+<br><br><br><br>
+  <div class="row">
+    <div class="contact-info">
+    <div class="box">
+      <i class="bi bi-house">address</i>
+      <p>Abbottabad</p>
+      <p>Supply Bazar. </p>
+      <p>Pakistan -54950</p>
+    </div>
+    <br><br><br>
+    <div class="box">
+      <i class="bi bi-envelope">Email</i>
+      <p>Abbottabad</p>
+      <p>Supply Bazar. </p>
+      <p>Pakistan -54950</p>
+    </div>
+    <br><br><br>
+    <div class="box">
+      <i class="bi bi-phone">Contact</i>
+      <p>Abbottabad</p>
+      <p>Supply Bazar. </p>
+      <p>Pakistan -54950</p>
+    </div>
+    <br><br><br>
+  </div>
+
+
+
+  <br><br><br>
+
+  <div class="contact-form">
+    
+  <h1 class="section-heading" style="color: rgb(41,167,178);">Get In Touch!</h1>
+<br><br><br>
+    <form action="#" method="post">
+      <form-group>
+        
+        <input type="text" id="name" name="name" placeholder=" Full Name" required>
+
+        
+        <input type="email" id="email" name="email" required  placeholder="E-Mail">
+      </form-group>
+      
+        <textarea id="message" name="message" rows="5" placeholder="Enter your message" placeholder="Message" required></textarea>
+
+        <input type="submit" value="Message">
+    </form>
+</div>
+
+
+
+
+</div>
+</section>
+<!-- contact section ends here -->
+
+
+
+  </main>
+  <footer>
+
+  </footer>
+</body>
+</html>
